@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>dom</title>
+</head>
+<style>
+    
+    .img_cl{
+        position: relative;
+        width: 200px;
+        height: 300px;
+        background-color: aquamarine;
+    }
+    img{
+        width: 20px;
+        height: 30px;
+        position: relative;
+    }
+    
+    </style>
+<body>
+    <a href="https://www.youtube.com/">Youtube</a>
+    <a href="https://vk.com/alx_lean">Vk</a>
+    <a href="https://github.com/true-grue/kisscm/tree/main/pract">Github</a>
+    
+    
+    
+    <li id="spisok" style="list-style-type: none;">
+        
+        
+    </li>
+    <div id="area_noti">
+        
+        
+    </div>
+    
+    
+    
+    <div class="img_cl"><img src="icon/telegram-739260.png" alt="" scr=""></div>
+    
+    
+    
+    
+    
+    
+    <script>
+    a=document.getElementsByTagName("a");
+    a[0].style.color = "green";
+    a[1].style.color = "red";
+    a[2].style.color = "blue";
+    
+    li = prompt("Введите элемент списка") ;
+    ul = document.getElementById("spisok");
+        while(li!= null){
+            if(li===''){
+                break;
+            }
+            tag_li = document.createElement("li");
+            tag_li.textContent = li;
+            ul.append(tag_li);
+             li = prompt("Введите элемент списка") ;
+            
+        }
+    let mas_noti = ["Сегодня день объятий:)", " Позвони завтра родителям !", " Не тяни до последного, делай све вовремя", "Хочешь рассмешить бога - расскажи ему о своих планах :>"]
+    function showNotification(){
+        del = document.getElementsByClassName('notification');
+       
+        if (del[0]!=undefined){
+          del[0].remove();
+        }
+        div_not = document.createElement("div");
+        div_not.classList.add('notification');
+        index_not = Math.floor(Math.random() * (3));
+        div_not.textContent = mas_noti[index_not];
+        area = document.getElementById('area_noti');
+        area.append(div_not);
+        
+    }
+    setInterval(showNotification,1500);
+        
+        
+        
+    elem = document.getElementsByClassName('img_cl');
+   
+    
+        elem[0].style.left= document.body.getBoundingClientRect().width/2 -elem[0].getBoundingClientRect().width/2+"px";
+        
+    img = document.getElementsByTagName('img');
+    img = img[0];
+    
+       img.style.left= elem[0].getBoundingClientRect().width/2 -img.getBoundingClientRect().width/2+"px";  
+        
+        
+        
+        img.style.top = elem[0].getBoundingClientRect().height/2 - img.getBoundingClientRect().height/2 + "px";
+        
+        elem[0].onclick = function (click){
+            console.log( click.pageX - elem[0].offsetLeft);
+            console.log( click.pageY - elem[0].offsetTop);
+            
+        }
+    </script>
+</body>
+</html>

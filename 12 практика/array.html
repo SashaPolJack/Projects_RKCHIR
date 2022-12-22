@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"/>
+    <title>
+    array</title>
+</head>
+<body>
+    
+    
+   
+    
+    
+    
+    <div class="mas"><p>У вас новое уведобление!</p>
+    
+    <p class="count_mas">0</p>
+    </div>
+     <button class="b_div"> Изменить</button>
+    
+    <button class="b_div del"> Удалить</button>
+    <script>
+    // 1 задание
+    let arr_elem = ["Яблоко", "Груша", "Апельсин","Банан"];
+    n_div=document.createElement('div');
+        for (let frut of arr_elem){
+        n_div.textContent += frut+" ";    
+        }
+        
+        
+    document.body.append(n_div);
+    
+        
+        button = document.getElementsByClassName('b_div');
+        del = document.getElementsByClassName('del');
+        
+        button[0].onclick = function (){
+        index=Math.floor(Math.random() * (3)); 
+            
+        arr_elem[index]="Кукуруза";
+         
+         n_div.textContent = n_div.textContent.replace(arr_elem);   
+             n_div.textContent="";
+             for (let frut of arr_elem){
+        n_div.textContent += frut+" ";    
+        }
+        };
+        
+        del[0].onclick = function (){
+            
+            arr_elem.shift();
+          
+                n_div.textContent="";
+             for (let frut of arr_elem){
+        n_div.textContent += frut+" ";    
+        }
+            
+        }
+        
+        // 2 задание
+        
+        let arr_num = [1,2,3,4,8,3,4,9,7]
+        a=2;
+        b=10;
+        
+        arr_new_n=arr_num.filter(el => el>=a && el<=b );
+        alert(arr_new_n);
+        alert(arr_num);
+        
+        // 3 задание
+        arr_num.sort();
+        alert(arr_num);
+        arr_num.reverse();
+        alert(arr_num);
+        let mas = document.getElementsByClassName('count_mas');
+        function massage(){
+            
+            mas[0].textContent = Number(mas[0].innerHTML)+1; 
+            
+            
+        }
+       let tim_mas; 
+       tim_mas= setInterval(() =>{ mas[0].textContent = Number(mas[0].innerHTML)+1;
+        div_notis = document.createElement('div');
+        div_notis.classList.add('ofor');
+        div_notis.textContent = "FFFGEWGDSG";
+        close_b = document.createElement('i');
+        close_b.classList.add('fa-solid');
+        close_b.classList.add('fa-xmark');
+        close_b.classList.add('of-i');
+        div_notis.append(close_b);
+        area = document.getElementsByClassName('mas');
+        area[0].append(div_notis);
+            
+                                 
+                                 }, 3000);
+        
+        let but_mas = document.getElementsByClassName('mas');
+//        but_mas[0].onclick = function () {
+//          
+//            clearInterval(tim_mas);
+//            clearTimeout();
+//            setTimeout(() => {
+//                
+//                mas[0].textContent = Number(mas[0].innerHTML)+1; 
+//                div_notis = document.createElement('div');
+//        div_notis.classList.add('ofor');
+//        div_notis.textContent = "FFFGEWGDSG";
+//        close_b = document.createElement('i');
+//        close_b.classList.add('fa-solid');
+//        close_b.classList.add('fa-xmark');
+//        close_b.classList.add('of-i');
+//        div_notis.append(close_b);
+//        area = document.getElementsByClassName('mas');
+//        area[0].append(div_notis);
+//                tim_mas= tim_mas=setInterval(() =>{  mas[0].textContent = Number(mas[0].innerHTML)+1;
+//        div_notis = document.createElement('div');
+//        div_notis.classList.add('ofor');
+//        div_notis.textContent = "FFFGEWGDSG";
+//        close_b = document.createElement('i');
+//        close_b.classList.add('fa-solid');
+//        close_b.classList.add('fa-xmark');
+//        close_b.classList.add('of-i');
+//        div_notis.append(close_b);
+//        area = document.getElementsByClassName('mas');
+//        area[0].append(div_notis); }, 3000);  
+//                
+//            
+//            }, 10000);
+//         
+//            
+//        };
+//        
+        close_del = document.getElementsByClassName('mas');
+       
+        close_del[0].onclick = function(event){
+            let target = event.target;
+            if (target.tagName != 'I') return;
+            
+            target.parentElement.remove();
+            mas[0].textContent = Number(mas[0].innerHTML)-1
+        }
+    </script>
+</body>
+</html>
