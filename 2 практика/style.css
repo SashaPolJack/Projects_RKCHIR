@@ -1,0 +1,61 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+.el_menu{
+        float: left;
+    margin-right: 10px;
+   
+}
+a{
+     text-decoration: none;
+
+    transition-duration: 1s;
+}
+.menu{
+    list-style-type: none;
+}
+nav{
+        padding-top: 1px;
+    width: 100%;
+    height: 49px;
+}
+.plit > li + li{
+    color: aqua;
+    
+}
+a:visited{
+    color: chartreuse;
+}
+a:active{
+    color: black;
+}
+a:hover{
+    color: blueviolet;
+    font-size: 20px;
+    
+}
+.image{
+    width: 200px;
+    height: 200px;
+    font-weight: bold;
+}
+.o_stat{
+    
+    float: left;
+}
+.logo{
+    float: left;
+}
+h1,h2,h3{
+    font-family: 'Lato', sans-serif;
+}
+.menu>li{
+    font-family: 'Lato', sans-serif;
+    color: black;
+    font-weight: bold;
+}
+li:nth-child(3){
+    color: brown;
+}
+.podval{
+        border: solid 1px blue;
+
+}
