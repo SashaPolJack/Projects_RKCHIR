@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>contents</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="">
+</head>
+<body id="body">
+   <div class="grid_content">
+    <div class="header">1</div>
+    <div class="slidebar">2</div>
+    <div class="navigation">*-n</div>
+    <div class="main">
+        
+      
+            <form id="form_id" action="#" class="grid_form">
+                <input type="text" placeholder="Имя" class="inp_con" name="name" >
+                <input type="text" placeholder="Фамилия" class="inp_con" name="sername">
+                <input type="email" placeholder="Почта" class="inp_con" name="mail">
+                <input type="tel" placeholder="Телефон" class="inp_con" name="num">
+                <textarea name="massege" placeholder="Ваше сообщение" class="text_ar inp_con"  id="" cols="30" rows="10">
+                   
+                    
+                </textarea>
+                <div id="cap" class="capcha_t"></div>
+                <input type="text" name="capcha" class="inp_con">
+                
+                <button  class="sub_con">Отправить</button>
+            </form>
+    
+        
+        <div id="like">
+ <img id="heart"  src="like.svg" alt="">
+<p id="text">25</p>
+       
+            
+        </div>
+         <canvas id="myCanvas" width="550px" height="350px"></canvas> 
+    </div>
+    <div class="ads">*</div>
+    <div class="footer">
+       
+       <div class="about_con">
+           <h2 class="h_footer">About us</h2>
+            <hr class="h_h2_footer" />
+           <p class="ab_con" id="p_t">
+               Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate ullam voluptatibus reprehenderit doloremque atque quidem nam, tempore ipsam suscipit rem expedita, non pariatur officia id quas, deleniti dicta neque, sed.
+           </p>
+       </div>
+        <div class="quick_links">
+            <h2 class="h_footer">Quick Links</h2>
+             <hr class="h_h2_footer" />
+            <ul class="spisok_fot">
+                <li class="li_spisok_fot">About</li>
+                <li class="li_spisok_fot">FAQ</li>
+                <li class="li_spisok_fot">Help</li>
+                <li class="li_spisok_fot">Contants</li>
+            </ul>
+        </div>
+        <div class="shop">
+            <h2 class="h_footer">Shop</h2>
+             <hr class="h_h2_footer" />
+            <ul class="spisok_fot">
+                <li class="li_spisok_fot">Men</li>
+                <li class="li_spisok_fot">Women</li>
+                <li class="li_spisok_fot">Shoes</li>
+                <li class="li_spisok_fot">lorem</li>
+            </ul>
+        </div>
+        <div class="contacts">
+            <h2 class="h_footer">Contacts</h2>
+            <hr class="h_h2_footer" />
+            <ul class="spisok_fot">
+                <li class="li_spisok_fot">Адрес: ул. Пушкина д. 12</li>
+                <li class="li_spisok_fot">Телефон : +7 905 456 75 89</li>
+                <li class="li_spisok_fot">Почта: example@mail.ru</li>
+              
+            </ul>
+        </div>
+    </div>
+    </div>
+    <script>
+  
+        function mous(e){
+          
+                 heart.style.left = e.pageX + "px";
+                heart.style.top = e.pageY + "px";
+                 
+    img =document.getElementById("heart").cloneNode(true);
+                 img.classList.add("img_cl");
+                 img.removeAttribute('id');
+            document.body.append(img);
+                 
+             }
+        
+        
+        
+     function der (){
+       
+        
+        if(like.style.backgroundColor == "white" || like.style.backgroundColor==""){
+            
+            like.style.backgroundColor = "red"; 
+            body.addEventListener('mousemove',mous);
+            text_p = document.getElementById("text");
+            
+            heart.style.position = "absolute"
+            text_p.innerHTML = Number(text_p.innerHTML) + 1;
+            
+        }else{
+        img_cl = document.getElementsByClassName("img_cl");
+            
+            heart.style.position = "static"
+            body.removeEventListener('mousemove',mous);
+            like.style.backgroundColor = "white";
+            text_p.innerHTML = Number(text_p.innerHTML) - 1;
+            
+        }
+        
+    }
+        
+    like.onclick = der;
+        function randomStr(){
+    var str=''
+    for(i=0;i<7;i++){
+        ran=getRandomInt()
+        if(ran<90 || ran>96){
+              s=String.fromCharCode(ran)
+      
+        str+=s
+        
+        
+        }else{
+            i--
+        }
+      
+    }
+  
+    document.getElementById("cap").innerHTML = str 
+    return str
+}
+     let check=randomStr()
+        
+ function serializeForm(formNode) {
+   const { elements } = formNode
+  const data = Array.from(elements)
+    .filter((item) => !!item.name)
+    .map((element) => {
+      const { name, value } = element
+
+      return { name, value }
+    })
+
+  console.log(data)
+    
+capcha_check(data)
+     
+     
+     
+}
+
+        
+        
+        let fl=0
+        function capcha_check(dates){
+            if(fl==0){
+            if(dates[5].value==check){
+                alert("верно")
+            }else{
+                alert("Неверно")
+                fl=1
+                a=getRandomInt()
+                b=getRandomInt()
+                sum=a+"+"+b
+                 document.getElementById("cap").innerHTML = sum
+                sum=a+b
+            }
+            }else{
+                if(dates[5].value==sum){
+                    alert("Верно")
+                }else{
+                   
+                    alert("Неверно")
+                }
+                
+                
+            }
+            
+        }
+function handleFormSubmit(event) {
+  event.preventDefault()
+  serializeForm(form)
+
+
+}
+
+
+
+const form = document.getElementById('form_id')
+form.addEventListener('submit', handleFormSubmit)
+
+      
+    function getRandomInt() {
+  min = Math.ceil(65);
+  max = Math.floor(122);
+  return Math.floor(Math.random() * (max - min) + min); 
+}          
+
+        
+        
+        
+        
+        
+function Accumulator(svalue) {
+  this.value = svalue;
+    this.read = function (){
+        
+        this.value=Number(this.value) + Number(prompt("Введите число для сложения"))
+    }
+    this.print = function(){
+        alert( this.value)
+    }
+ 
+}
+        ac = new Accumulator(23)
+        
+        alert(ac.value)
+        ac.read()
+        ac.read()
+        ac.read()
+        ac.print()
+text_test=document.getElementsByClassName("ab_con")[0].innerText
+         
+       
+truncate(text_test,15)
+function truncate(str_text,maxlenght){
+    
+    if(str_text.length > maxlenght){
+        str_text=str_text.slice(0,maxlenght-3)
+        re=str_text+"..."
+        str_text=str_text.replace(str_text,re)
+       document.getElementById("p_t").innerHTML =str_text 
+        
+        
+    }
+    
+    
+}
+        
+        
+        
+    </script>
+</body>
+</html>

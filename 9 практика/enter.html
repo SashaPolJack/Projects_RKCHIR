@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>enter</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg">
+    <div class="form_div">
+    <div class="kvadr_of"></div>
+    <div class="d_form">
+       
+        <form action="#" class="f_block">
+           <lable><p class="lable_f">Вход</p></lable>
+            <input type="text" class="name" placeholder="Логин">
+            <input type="password" class="pass" placeholder="Пароль">
+            <input type="submit" value="Войти" class="sub_m">
+        </form>
+    </div>
+    </div>
+    <script>
+     a="";
+    while(a!="Да"){
+        
+   a=prompt("Желаете вы пройти регистрацию?");
+    if(a=="Да"){
+        alert("Круто");
+    }else{
+        alert("Попробуй еще раз");
+    } 
+        
+    }
+    while(true){
+        login=prompt("Введите логин");
+    if(login=="Админ"){
+        pass=prompt("Введите пароль");
+        if(pass=="Я главный"){
+            alert("Здравствуйте!");
+            window.location = "contents.html"
+            break;
+        }else if(pass==null){
+            alert("Отмена");
+        } else{
+            alert("Неверный пароль");
+        }
+    }else if(login==null){
+        alert("Отмена");
+    }else{
+        alert("Я вас не знаю");
+    }
+        
+    }
+    
+    
+    
+    </script>
+</body>
+</html>
